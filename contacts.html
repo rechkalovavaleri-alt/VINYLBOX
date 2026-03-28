@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — VINYLBOX</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img class="logo-image" src="/images/logo1.webp" alt="Vinyl Box">
+            </a>
+            <nav class="nav">
+                <div class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></div>
+                <div class="nav-item"><a class="nav-link" href="catalog.html">КАТАЛОГ</a></div>
+                <div class="nav-item"><a class="nav-link" href="about.html">О НАС</a></div>
+                <div class="nav-item"><a class="nav-link is-active" href="contacts.html">КОНТАКТЫ</a></div>
+                <div class="nav-item"><a class="nav-link" href="cart.html">КОРЗИНА</a></div>
+                <div class="nav-item"><a class="nav-link" href="login.html">ВХОД</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contacts">
+            <div id="contacts-map" class="contacts__map" aria-hidden="true"></div>
+            <div class="container contacts__inner">
+                <div class="contacts__panel">
+                    <div class="contacts__box">
+                        <h1 class="contacts__title">Контакты</h1>
+                        <div class="contacts__section">
+                            <div class="contacts__label-row">
+                                <div class="contacts__label">Офлайн магазин</div>
+                                <button class="contacts__copy-btn" type="button" data-copy="address" aria-label="Скопировать адрес">⧉</button>
+                            </div>
+                            <div class="contacts__value">
+                                г. Санкт-Петербург, ул. Марата, 54/34
+                                <br>Метро Ломоносовская
+                            </div>
+                        </div>
+                        <div class="contacts__section">
+                            <div class="contacts__label">Режим работы</div>
+                            <div class="contacts__value">
+                                <span class="contacts__time">12:00</span>
+                                <span class="contacts__line"></span>
+                                <span class="contacts__time">21:00</span>
+                                <div class="contacts__muted">без выходных</div>
+                            </div>
+                        </div>
+                        <div class="contacts__section">
+                            <div class="contacts__label">Телефон</div>
+                            <div class="contacts__value">
+                                +7 812 903 15 20
+                                <br>+7 921 903 15 20
+                            </div>
+                        </div>
+                        <div class="contacts__section">
+                            <div class="contacts__label">Почта</div>
+                            <div class="contacts__value">
+                                <a class="contacts__link" href="mailto:info@vinylbox.ru">info@vinylbox.ru</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" aria-label="Подвал сайта">
+        <div class="footer__ticker" aria-hidden="true">
+            <div class="footer__ticker-track">
+                <span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span>
+            </div>
+            <div class="footer__ticker-track" aria-hidden="true">
+                <span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span>
+            </div>
+        </div>
+
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <img src="/images/logo_w.webp" alt="Vinyl Box">
+            </div>
+
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+            </div>
+
+            <div class="footer__col">
+                <h3>Покупателю</h3>
+                <a href="#">Доставка</a>
+                <a href="#">Оплата</a>
+                <a href="#">Обмен и возврат</a>
+                <a href="#">Частозадаваемые вопросы</a>
+            </div>
+
+            <div class="footer__col">
+                <h3>Соцсети</h3>
+                <a href="#">Группа в ВК</a>
+                <a href="#">Телеграм-канал</a>
+            </div>
+
+            <div class="footer__legal">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Согласие на обработку персональных данных</a>
+                <a href="#">Публичная оферта</a>
+            </div>
+        </div>
+
+        <div class="container footer__bottom">
+            <button class="footer__to-top" type="button" aria-label="Наверх">Наверх <span>➜</span></button>
+            <div class="footer__subscribe">
+                <div class="footer__subscribe-title">Оставайтесь на связи</div>
+                <div class="footer__subscribe-text">Получайте подборки новых пластинок по вашим любимым жанрам</div>
+                <div class="footer__subscribe-form">
+                    <input type="email" placeholder="email@example.com" aria-label="Email">
+                    <button type="button" aria-label="Отправить">➜</button>
+                </div>
+            </div>
+            <div class="footer__contacts">
+                <div class="footer__email">info@vinylbox.ru</div>
+                <div class="footer__phone">+7 (000) 000-00-00</div>
+                <div class="footer__copy">Vinyl Box<br>© 2005–2025 Все права защищены</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=8de5862e-1be4-41e5-8bbf-cd60e5b201bd"></script>
+    <script src="js/site.js"></script>
+    <script>
+        (function () {
+            if (!window.ymaps) return;
+
+            const address = "г. Санкт-Петербург, ул. Марата, 54/34";
+            const coords = [59.9229, 30.3504];
+
+            ymaps.ready(() => {
+                const map = new ymaps.Map("contacts-map", {
+                    center: coords,
+                    zoom: 16,
+                    controls: ["zoomControl"]
+                }, {
+                    suppressMapOpenBlock: true
+                });
+
+                const placemark = new ymaps.Placemark(coords, {
+                    hintContent: "Vinyl Box",
+                    balloonContent: address
+                }, {
+                    preset: "islands#dotIcon",
+                    iconColor: "#000000"
+                });
+                map.geoObjects.add(placemark);
+
+                const delta = 0.0035;
+                map.setBounds([
+                    [coords[0] - delta, coords[1] - delta],
+                    [coords[0] + delta, coords[1] + delta]
+                ], { checkZoomRange: true });
+                map.options.set("restrictMapArea", map.getBounds());
+            });
+        })();
+
+        (function () {
+            const btn = document.querySelector('[data-copy=\"address\"]');
+            if (!btn) return;
+            const addressText = 'г. Санкт-Петербург, ул. Марата, 54/34';
+            btn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(addressText);
+                    btn.classList.add('is-copied');
+                    btn.textContent = '✓';
+                    setTimeout(() => {
+                        btn.classList.remove('is-copied');
+                        btn.textContent = '⧉';
+                    }, 1200);
+                } catch (e) {
+                    btn.classList.add('is-copied');
+                    setTimeout(() => btn.classList.remove('is-copied'), 1200);
+                }
+            });
+        })();
+
+        (function () {
+            const btn = document.querySelector('.footer__to-top');
+            if (!btn) return;
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        })();
+    </script>
+</body>
+</html>

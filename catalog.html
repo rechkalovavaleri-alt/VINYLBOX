@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — VINYLBOX</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img class="logo-image" src="/images/logo1.webp" alt="Vinyl Box">
+            </a>
+            <nav class="nav">
+                <div class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></div>
+                <div class="nav-item"><a class="nav-link is-active" href="catalog.html">КАТАЛОГ</a></div>
+                <div class="nav-item"><a class="nav-link" href="about.html">О НАС</a></div>
+                <div class="nav-item"><a class="nav-link" href="contacts.html">КОНТАКТЫ</a></div>
+                <div class="nav-item"><a class="nav-link" href="cart.html">КОРЗИНА</a></div>
+                <div class="nav-item"><a class="nav-link" href="login.html">ВХОД</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-page">
+            <div class="container">
+                <div class="catalog-page__hero">
+                    <div class="catalog-hero-carousel" aria-hidden="true">
+                        <div class="catalog-hero-carousel__track" data-artist-track></div>
+                    </div>
+
+                    <h1 class="catalog-page__title">КАТАЛОГ</h1>
+                    <div class="catalog-page__crumbs">Главная | <strong>Каталог</strong></div>
+                </div>
+
+                <div class="catalog-page__layout">
+                    <aside class="catalog-page__sidebar">
+                        <div class="catalog-page__group">
+                            <div class="catalog-page__label">поиск</div>
+                            <div class="catalog-page__search">
+                                <input type="search" name="q" placeholder="Исполнитель, жанр, год" list="catalog-suggest">
+                                <datalist id="catalog-suggest">
+                                    <option value="Tame Impala"></option>
+                                    <option value="Aphex Twin"></option>
+                                    <option value="Nirvana"></option>
+                                    <option value="Soundtrack"></option>
+                                    <option value="1990-е"></option>
+                                    <option value="Эксклюзив"></option>
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="catalog-page__group">
+                            <details class="catalog-page__filter">
+                                <summary>жанр</summary>
+                                <div class="catalog-page__filter-options">
+                                    <label><input type="checkbox" name="genre" value="rock"> рок</label>
+                                    <label><input type="checkbox" name="genre" value="electronic"> электроника</label>
+                                    <label><input type="checkbox" name="genre" value="jazz"> джаз</label>
+                                    <label><input type="checkbox" name="genre" value="hiphop"> хип‑хоп</label>
+                                    <label><input type="checkbox" name="genre" value="soundtrack"> саундтреки</label>
+                                    <label><input type="checkbox" name="genre" value="classic"> классика</label>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="catalog-page__group">
+                            <details class="catalog-page__filter">
+                                <summary>наличие</summary>
+                                <div class="catalog-page__filter-options">
+                                    <label><input type="checkbox" name="stock" value="in"> в наличии</label>
+                                    <label><input type="checkbox" name="stock" value="order"> под заказ</label>
+                                    <label><input type="checkbox" name="stock" value="soon"> скоро в продаже</label>
+                                    <label><input type="checkbox" name="stock" value="sold"> распродано</label>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="catalog-page__group">
+                            <div class="catalog-page__label">цена</div>
+                            <div class="catalog-page__range">
+                                <div class="catalog-page__range-values">
+                                    <span class="catalog-page__range-min">0 ₽</span>
+                                    <span class="catalog-page__range-max">0 ₽</span>
+                                </div>
+                                <div class="catalog-page__range-sliders">
+                                    <input class="catalog-page__range-input" type="range" name="price-min" min="0" max="10000" step="100" value="0">
+                                    <input class="catalog-page__range-input" type="range" name="price-max" min="0" max="10000" step="100" value="10000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="catalog-page__group">
+                            <details class="catalog-page__sort">
+                                <summary>порядок</summary>
+                                <div class="catalog-page__sort-options">
+                                    <label><input type="radio" name="sort" value="default" checked> по умолчанию</label>
+                                    <label><input type="radio" name="sort" value="price-asc"> по цене: дешевле</label>
+                                    <label><input type="radio" name="sort" value="price-desc"> по цене: дороже</label>
+                                    <label><input type="radio" name="sort" value="new"> по новизне</label>
+                                    <label><input type="radio" name="sort" value="popular"> по популярности</label>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="catalog-page__group">
+                            <button class="catalog-page__reset" type="button">сбросить фильтры</button>
+                        </div>
+                    </aside>
+
+                    <div class="catalog-page__content">
+                        <div class="catalog-page__filters" data-filter-group>
+                            <button class="catalog-page__chip is-active" data-filter="all">все</button>
+                            <button class="catalog-page__chip" data-filter="vinyl">винил</button>
+                            <button class="catalog-page__chip" data-filter="used">б/у винил</button>
+                            <button class="catalog-page__chip" data-filter="new">новинки</button>
+                            <button class="catalog-page__chip" data-filter="popular">самые популярные</button>
+                            <button class="catalog-page__chip" data-filter="exclusive">эксклюзив</button>
+                            <button class="catalog-page__chip" data-filter="soundtrack">саундтреки</button>
+                            <button class="catalog-page__chip" data-filter="sale">распродажа</button>
+                            <button class="catalog-page__chip" data-filter="cassette">кассеты</button>
+                            <button class="catalog-page__chip" data-filter="books">книги</button>
+                            <button class="catalog-page__chip" data-filter="merch">мерч</button>
+                            <button class="catalog-page__chip" data-filter="gift">подарочные сертификаты</button>
+                        </div>
+
+                        <div class="catalog-page__grid" data-items>
+                    <article class="catalog-page__card" data-cat="vinyl new popular" data-genre="electronic" data-stock="in" data-price="7590" data-pop="92" data-date="2024-11-10">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Tame Impala</div>
+                        <div class="catalog-page__sub">Deadbread</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">7 590 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="vinyl used" data-genre="electronic" data-stock="sold" data-price="5200" data-pop="75" data-date="2021-05-12">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Aphex Twin</div>
+                        <div class="catalog-page__sub">Selected Ambient</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">5 200 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="cassette popular" data-genre="rock" data-stock="in" data-price="3400" data-pop="98" data-date="2023-08-22">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Nirvana</div>
+                        <div class="catalog-page__sub">Nevermind</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">3 400 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="soundtrack" data-genre="soundtrack" data-stock="order" data-price="4990" data-pop="61" data-date="2022-01-18">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Soundtrack</div>
+                        <div class="catalog-page__sub">Top Gun</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">4 990 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="exclusive" data-genre="jazz" data-stock="in" data-price="8900" data-pop="83" data-date="2024-02-04">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Miles Davis</div>
+                        <div class="catalog-page__sub">Kind of Blue</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">8 900 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="books" data-genre="classic" data-stock="in" data-price="1200" data-pop="44" data-date="2020-09-30">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Книга</div>
+                        <div class="catalog-page__sub">История винила</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">1 200 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="gift" data-genre="classic" data-stock="in" data-price="2000" data-pop="58" data-date="2023-12-01">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Сертификат</div>
+                        <div class="catalog-page__sub">На покупку</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">2 000 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="merch" data-genre="rock" data-stock="soon" data-price="2500" data-pop="69" data-date="2022-06-15">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">Футболка</div>
+                        <div class="catalog-page__sub">Vinyl Box</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">2 500 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="catalog-page__card" data-cat="sale" data-genre="rock" data-stock="in" data-price="3990" data-pop="80" data-date="2019-03-10">
+                        <div class="catalog-page__img"></div>
+                        <button class="catalog-page__fav" type="button" aria-label="В избранное">
+                            <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <div class="catalog-page__name">The Cure</div>
+                        <div class="catalog-page__sub">Disintegration</div>
+                        <div class="catalog-page__price-row">
+                            <div class="catalog-page__price">3 990 ₽</div>
+                            <button class="catalog-page__cart" type="button" aria-label="В корзину">
+                                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </article>
+                        </div>
+                        <div class="catalog-page__pagination" data-pagination></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" aria-label="Подвал сайта">
+        <div class="footer__ticker" aria-hidden="true">
+            <div class="footer__ticker-track">
+                <span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span>
+            </div>
+            <div class="footer__ticker-track" aria-hidden="true">
+                <span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span>
+            </div>
+        </div>
+
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <img src="/images/logo_w.webp" alt="Vinyl Box">
+            </div>
+
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+            </div>
+
+            <div class="footer__col">
+                <h3>Покупателю</h3>
+                <a href="#">Доставка</a>
+                <a href="#">Оплата</a>
+                <a href="#">Обмен и возврат</a>
+                <a href="#">Частозадаваемые вопросы</a>
+            </div>
+
+            <div class="footer__col">
+                <h3>Соцсети</h3>
+                <a href="#">Группа в ВК</a>
+                <a href="#">Телеграм-канал</a>
+            </div>
+
+            <div class="footer__legal">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Согласие на обработку персональных данных</a>
+                <a href="#">Публичная оферта</a>
+            </div>
+        </div>
+
+        <div class="container footer__bottom">
+            <button class="footer__to-top" type="button" aria-label="Наверх">Наверх <span>➜</span></button>
+            <div class="footer__subscribe">
+                <div class="footer__subscribe-title">Оставайтесь на связи</div>
+                <div class="footer__subscribe-text">Получайте подборки новых пластинок по вашим любимым жанрам</div>
+                <div class="footer__subscribe-form">
+                    <input type="email" placeholder="email@example.com" aria-label="Email">
+                    <button type="button" aria-label="Отправить">➜</button>
+                </div>
+            </div>
+            <div class="footer__contacts">
+                <div class="footer__email">info@vinylbox.ru</div>
+                <div class="footer__phone">+7 (000) 000-00-00</div>
+                <div class="footer__copy">Vinyl Box<br>© 2005–2025 Все права защищены</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+    <script>
+        (function () {
+            const btn = document.querySelector('.footer__to-top');
+            if (!btn) return;
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        })();
+
+        (function () {
+            const group = document.querySelector('[data-filter-group]');
+            const grid = document.querySelector('[data-items]');
+            const pagination = document.querySelector('[data-pagination]');
+            const radios = Array.from(document.querySelectorAll('input[name="sort"]'));
+            if (!group || !grid || !pagination) return;
+
+            const searchInput = document.querySelector('.catalog-page__search input');
+            const resetBtn = document.querySelector('.catalog-page__reset');
+            const priceMinInput = document.querySelector('input[name="price-min"]');
+            const priceMaxInput = document.querySelector('input[name="price-max"]');
+            const priceMinLabel = document.querySelector('.catalog-page__range-min');
+            const priceMaxLabel = document.querySelector('.catalog-page__range-max');
+
+            // Support deep-linking from the home page mini-catalogs (e.g. catalog.html?q=Artist).
+            if (searchInput) {
+                const q = new URLSearchParams(window.location.search).get('q');
+                if (q) searchInput.value = q;
+            }
+
+            const starIcon = `
+                <svg class="catalog-page__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.52205 0.722098C7.10168 -0.2407 8.4981 -0.240699 9.07772 0.722098L10.8599 3.68304C10.9079 3.76273 10.9862 3.82013 11.0767 3.84124L14.4449 4.62054C15.5396 4.87433 15.9704 6.20245 15.234 7.0512L12.9683 9.66155C12.9075 9.73179 12.8774 9.82387 12.8853 9.91643L13.1842 13.3598C13.2813 14.4796 12.1518 15.3002 11.1168 14.8617L7.93416 13.5141C7.84842 13.4778 7.75133 13.4778 7.66561 13.5141L4.48397 14.8617C3.44899 15.3002 2.3194 14.4796 2.41659 13.3598L2.71541 9.91643C2.72333 9.82388 2.69321 9.73177 2.63241 9.66155L0.365805 7.0512C-0.37041 6.20237 0.0610823 4.87415 1.15584 4.62054L4.52303 3.84124C4.61377 3.8202 4.69277 3.76284 4.7408 3.68304L6.52205 0.722098Z" fill="currentColor"/>
+                </svg>
+            `;
+
+            const boxIcon = `
+                <svg class="catalog-page__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 13.8313C0 14.2036 0.218464 14.5393 0.553846 14.6825L8.04638 17.881C8.17832 17.9373 8.3249 17.8405 8.3249 17.6971V8.11934C8.3249 8.03971 8.27766 7.96767 8.20463 7.93592L3.78823 6.01618L0.278523 4.51791C0.146581 4.46158 0 4.55839 0 4.70185V13.8313Z" fill="currentColor"/>
+                    <path d="M1.35353 3.11054C1.19156 3.17969 1.19156 3.40928 1.35353 3.47843L3.96405 4.59284C4.01521 4.61468 4.07314 4.61422 4.12395 4.59159L11.5309 1.29215C11.6904 1.22109 11.6886 0.994073 11.528 0.925514L9.69231 0.14186C9.24923 -0.0472867 8.75077 -0.0472865 8.30769 0.14186L1.35353 3.11054Z" fill="currentColor"/>
+                    <path d="M13.7589 1.87786C13.7077 1.85602 13.6498 1.85647 13.599 1.87911L6.1754 5.18598C6.01646 5.25678 6.01748 5.48273 6.17705 5.55209L8.91406 6.74183C8.96574 6.76429 9.02451 6.76391 9.07589 6.74078L16.4837 3.40584C16.6426 3.33431 16.6404 3.10794 16.4801 3.03953L13.7589 1.87786Z" fill="currentColor"/>
+                    <path d="M18 4.54335C18 4.3982 17.8502 4.30139 17.7179 4.36098L9.7928 7.92881C9.72104 7.96111 9.6749 8.03249 9.6749 8.11118V17.6972C9.6749 17.8406 9.82148 17.9374 9.95342 17.8811L17.4462 14.6825C17.7815 14.5393 18 14.2036 18 13.8313V4.54335Z" fill="currentColor"/>
+                </svg>
+            `;
+
+            const extraProducts = [
+                { name: 'Boards of Canada', sub: 'Music Has the Right', cat: 'vinyl new', genre: 'electronic', stock: 'in', price: 6290, pop: 70, date: '2024-07-18' },
+                { name: 'Pink Floyd', sub: 'The Wall', cat: 'vinyl popular', genre: 'rock', stock: 'in', price: 7100, pop: 95, date: '2023-03-02' },
+                { name: 'John Coltrane', sub: 'Blue Train', cat: 'vinyl new', genre: 'jazz', stock: 'in', price: 5600, pop: 66, date: '2024-09-05' },
+                { name: 'Radiohead', sub: 'OK Computer', cat: 'vinyl used', genre: 'rock', stock: 'in', price: 4300, pop: 60, date: '2018-10-12' },
+                { name: 'Kendrick Lamar', sub: 'DAMN.', cat: 'cassette new', genre: 'hiphop', stock: 'in', price: 2900, pop: 55, date: '2024-01-21' },
+                { name: 'Hans Zimmer', sub: 'Interstellar', cat: 'soundtrack new', genre: 'soundtrack', stock: 'in', price: 5200, pop: 73, date: '2024-03-11' },
+                { name: 'Daft Punk', sub: 'Discovery', cat: 'vinyl popular exclusive', genre: 'electronic', stock: 'in', price: 6800, pop: 97, date: '2023-11-14' },
+                { name: 'The Beatles', sub: 'Abbey Road', cat: 'vinyl popular', genre: 'rock', stock: 'order', price: 6100, pop: 88, date: '2022-04-19' },
+                { name: 'Massive Attack', sub: 'Mezzanine', cat: 'vinyl used sale', genre: 'electronic', stock: 'in', price: 3900, pop: 64, date: '2017-02-20' },
+                { name: 'Arctic Monkeys', sub: 'AM', cat: 'cassette popular', genre: 'rock', stock: 'in', price: 3100, pop: 84, date: '2021-07-07' },
+                { name: 'Ryuichi Sakamoto', sub: '1996', cat: 'exclusive', genre: 'classic', stock: 'soon', price: 7400, pop: 57, date: '2024-12-02' },
+                { name: 'Nujabes', sub: 'Modal Soul', cat: 'vinyl popular', genre: 'hiphop', stock: 'in', price: 5900, pop: 82, date: '2022-10-09' },
+                { name: 'Portishead', sub: 'Dummy', cat: 'vinyl used', genre: 'electronic', stock: 'in', price: 4100, pop: 63, date: '2016-05-15' },
+                { name: 'Gorillaz', sub: 'Demon Days', cat: 'vinyl popular', genre: 'rock', stock: 'order', price: 5400, pop: 78, date: '2020-02-12' },
+                { name: 'A Tribe Called Quest', sub: 'Midnight Marauders', cat: 'vinyl new', genre: 'hiphop', stock: 'in', price: 6200, pop: 74, date: '2024-06-02' },
+                { name: 'Miles Davis', sub: 'Bitches Brew', cat: 'vinyl used', genre: 'jazz', stock: 'in', price: 4600, pop: 59, date: '2015-09-28' },
+                { name: 'Bill Evans', sub: 'Waltz for Debby', cat: 'vinyl new', genre: 'jazz', stock: 'in', price: 6400, pop: 65, date: '2024-04-26' },
+                { name: 'Chopin', sub: 'Nocturnes', cat: 'vinyl new', genre: 'classic', stock: 'in', price: 4800, pop: 52, date: '2023-09-03' },
+                { name: 'Vivaldi', sub: 'Four Seasons', cat: 'vinyl popular', genre: 'classic', stock: 'in', price: 4500, pop: 58, date: '2021-11-30' },
+                { name: 'Kraftwerk', sub: 'The Man-Machine', cat: 'vinyl used', genre: 'electronic', stock: 'sold', price: 5100, pop: 62, date: '2014-01-17' },
+                { name: 'Metallica', sub: 'Ride the Lightning', cat: 'vinyl popular', genre: 'rock', stock: 'in', price: 6900, pop: 90, date: '2022-08-05' },
+                { name: 'Taylor Swift', sub: '1989', cat: 'vinyl new', genre: 'rock', stock: 'soon', price: 7200, pop: 77, date: '2024-10-11' },
+                { name: 'Книга', sub: 'Гид по винилу', cat: 'books', genre: 'classic', stock: 'in', price: 1500, pop: 41, date: '2021-03-14' },
+                { name: 'Постер', sub: 'VINYL BOX', cat: 'merch', genre: 'rock', stock: 'in', price: 900, pop: 39, date: '2023-01-08' },
+                { name: 'Сертификат', sub: 'Подарок 5000', cat: 'gift', genre: 'classic', stock: 'in', price: 5000, pop: 67, date: '2024-02-14' }
+            ];
+
+            const createCard = (product) => {
+                const card = document.createElement('article');
+                card.className = 'catalog-page__card';
+                card.dataset.cat = product.cat;
+                card.dataset.genre = product.genre;
+                card.dataset.stock = product.stock;
+                card.dataset.price = String(product.price);
+                card.dataset.pop = String(product.pop);
+                card.dataset.date = product.date;
+                card.innerHTML = `
+                    <div class="catalog-page__img"></div>
+                    <button class="catalog-page__fav" type="button" aria-label="В избранное">${starIcon}</button>
+                    <div class="catalog-page__name">${product.name}</div>
+                    <div class="catalog-page__sub">${product.sub}</div>
+                    <div class="catalog-page__price-row">
+                        <div class="catalog-page__price">${product.price.toLocaleString('ru-RU')} ₽</div>
+                        <button class="catalog-page__cart" type="button" aria-label="В корзину">${boxIcon}</button>
+                    </div>
+                `;
+                return card;
+            };
+
+            extraProducts.forEach(product => grid.appendChild(createCard(product)));
+
+            const allItems = Array.from(grid.querySelectorAll('.catalog-page__card'));
+            const originalOrder = new Map(allItems.map((card, index) => [card, index]));
+            const itemsPerPage = 25;
+            let currentPage = 1;
+            let currentSort = 'default';
+
+            const buildArtistCarousel = () => {
+                const track = document.querySelector('[data-artist-track]');
+                if (!track) return;
+
+                // Fixed mapping: each image (1..6) has its own artist name.
+                const artists = [
+                    { name: 'Ariana Grande', img: 1 },
+                    { name: 'tyler the creator', img: 2 },
+                    { name: 'The Neighbourhood', img: 3 },
+                    { name: 'Charli XCX', img: 4 },
+                    { name: 'Offset', img: 5 },
+                    { name: 'Imagine Dragons', img: 6 }
+                ];
+
+                const itemHTML = artists.map((p) => {
+                    const img = `/images/catalog/artists/${p.img}.webp`;
+                    return `
+                        <div class="catalog-hero-carousel__item">
+                            <div class="catalog-hero-carousel__circle">
+                                <img src="${img}" alt="">
+                            </div>
+                            <div class="catalog-hero-carousel__meta">
+                                <div class="catalog-hero-carousel__name">${p.name}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                // Duplicate for seamless loop.
+                track.innerHTML = itemHTML + itemHTML;
+                // Slower marquee: bigger duration => slower movement.
+                const dur = Math.max(42, artists.length * 9.5);
+                track.style.setProperty('--dur', `${dur}s`);
+            };
+
+            buildArtistCarousel();
+
+            const getCheckedValues = (selector) => {
+                return Array.from(document.querySelectorAll(selector))
+                    .filter(input => input.checked)
+                    .map(input => input.value);
+            };
+
+            const getNumber = (el, key) => {
+                const raw = el.dataset[key] || '0';
+                const n = Number(raw);
+                return Number.isFinite(n) ? n : 0;
+            };
+
+            const getDate = (el) => {
+                const raw = el.dataset.date || '';
+                const time = Date.parse(raw);
+                return Number.isFinite(time) ? time : 0;
+            };
+
+            const clampPrice = () => {
+                if (!priceMinInput || !priceMaxInput) return;
+                let minVal = Number(priceMinInput.value);
+                let maxVal = Number(priceMaxInput.value);
+                if (minVal > maxVal) {
+                    [minVal, maxVal] = [maxVal, minVal];
+                }
+                priceMinInput.value = String(minVal);
+                priceMaxInput.value = String(maxVal);
+                if (priceMinLabel) priceMinLabel.textContent = `${minVal.toLocaleString('ru-RU')} ₽`;
+                if (priceMaxLabel) priceMaxLabel.textContent = `${maxVal.toLocaleString('ru-RU')} ₽`;
+            };
+
+            const getFilteredItems = () => {
+                const activeChip = group.querySelector('.catalog-page__chip.is-active');
+                const chipFilter = activeChip ? activeChip.dataset.filter : 'all';
+                const genres = getCheckedValues('input[name="genre"]');
+                const stocks = getCheckedValues('input[name="stock"]');
+                const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+                const minPrice = priceMinInput ? Number(priceMinInput.value) : 0;
+                const maxPrice = priceMaxInput ? Number(priceMaxInput.value) : Number.MAX_SAFE_INTEGER;
+
+                return allItems.filter(card => {
+                    const cats = (card.dataset.cat || '').split(' ');
+                    const genre = card.dataset.genre || '';
+                    const stock = card.dataset.stock || '';
+                    const name = card.querySelector('.catalog-page__name')?.textContent || '';
+                    const sub = card.querySelector('.catalog-page__sub')?.textContent || '';
+                    const priceText = card.querySelector('.catalog-page__price')?.textContent || '';
+                    const haystack = `${name} ${sub} ${priceText} ${genre}`.toLowerCase();
+                    const priceValue = Number(card.dataset.price || 0);
+
+                    const matchChip = chipFilter === 'all' || cats.includes(chipFilter);
+                    const matchGenre = genres.length === 0 || genres.includes(genre);
+                    const matchStock = stocks.length === 0 || stocks.includes(stock);
+                    const matchQuery = query.length === 0 || haystack.includes(query);
+                    const matchPrice = priceValue >= minPrice && priceValue <= maxPrice;
+
+                    return matchChip && matchGenre && matchStock && matchQuery && matchPrice;
+                });
+            };
+
+            const getSortedItems = (items) => {
+                const sorted = items.slice();
+                if (currentSort === 'price-asc') {
+                    sorted.sort((a, b) => getNumber(a, 'price') - getNumber(b, 'price'));
+                } else if (currentSort === 'price-desc') {
+                    sorted.sort((a, b) => getNumber(b, 'price') - getNumber(a, 'price'));
+                } else if (currentSort === 'new') {
+                    sorted.sort((a, b) => getDate(b) - getDate(a));
+                } else if (currentSort === 'popular') {
+                    sorted.sort((a, b) => getNumber(b, 'pop') - getNumber(a, 'pop'));
+                } else {
+                    sorted.sort((a, b) => originalOrder.get(a) - originalOrder.get(b));
+                }
+                return sorted;
+            };
+
+            const renderPagination = (totalPages) => {
+                pagination.innerHTML = '';
+                if (totalPages <= 1) return;
+
+                const pagesToShow = Math.min(totalPages, 4);
+                for (let page = 1; page <= pagesToShow; page += 1) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'catalog-page__page';
+                    if (page === currentPage) {
+                        btn.classList.add('is-active');
+                    }
+                    btn.textContent = String(page);
+                    btn.addEventListener('click', () => {
+                        currentPage = page;
+                        applyCatalog(false);
+                    });
+                    pagination.appendChild(btn);
+                }
+
+                // Decorative tail to match the mockup (non-interactive).
+                if (totalPages < 70) {
+                    for (let i = 0; i < 7; i += 1) {
+                        const dot = document.createElement('span');
+                        dot.className = 'catalog-page__dot';
+                        dot.setAttribute('aria-hidden', 'true');
+                        pagination.appendChild(dot);
+                    }
+
+                    [69, 70].forEach((n) => {
+                        const span = document.createElement('span');
+                        span.className = 'catalog-page__page catalog-page__page--static';
+                        span.textContent = String(n);
+                        span.setAttribute('aria-hidden', 'true');
+                        pagination.appendChild(span);
+                    });
+                }
+            };
+
+            const renderItems = (items) => {
+                const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
+                if (currentPage > totalPages) {
+                    currentPage = totalPages;
+                }
+
+                const start = (currentPage - 1) * itemsPerPage;
+                const visibleItems = items.slice(start, start + itemsPerPage);
+
+                items.forEach(card => grid.appendChild(card));
+                allItems.forEach(card => {
+                    card.style.display = 'none';
+                });
+                visibleItems.forEach(card => {
+                    card.style.display = '';
+                });
+
+                renderPagination(totalPages);
+            };
+
+            const applyCatalog = (resetPage = true) => {
+                if (resetPage) {
+                    currentPage = 1;
+                }
+                const filtered = getFilteredItems();
+                const sorted = getSortedItems(filtered);
+                renderItems(sorted);
+            };
+
+            group.addEventListener('click', (e) => {
+                const btn = e.target.closest('[data-filter]');
+                if (!btn) return;
+                group.querySelectorAll('.catalog-page__chip').forEach(chip => chip.classList.remove('is-active'));
+                btn.classList.add('is-active');
+                applyCatalog();
+            });
+
+            document.querySelectorAll('input[name="genre"], input[name="stock"]').forEach(input => {
+                input.addEventListener('change', () => applyCatalog());
+            });
+
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    currentSort = e.target.value;
+                    applyCatalog();
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => applyCatalog());
+            }
+
+            if (priceMinInput && priceMaxInput) {
+                const prices = allItems.map(card => Number(card.dataset.price || 0));
+                const min = Math.min(...prices);
+                const max = Math.max(...prices);
+                priceMinInput.min = String(min);
+                priceMinInput.max = String(max);
+                priceMaxInput.min = String(min);
+                priceMaxInput.max = String(max);
+                priceMinInput.value = String(min);
+                priceMaxInput.value = String(max);
+                clampPrice();
+
+                const onRange = () => {
+                    clampPrice();
+                    applyCatalog();
+                };
+
+                priceMinInput.addEventListener('input', onRange);
+                priceMaxInput.addEventListener('input', onRange);
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    group.querySelectorAll('.catalog-page__chip').forEach(chip => chip.classList.remove('is-active'));
+                    const allChip = group.querySelector('[data-filter="all"]');
+                    if (allChip) {
+                        allChip.classList.add('is-active');
+                    }
+
+                    document.querySelectorAll('input[name="genre"], input[name="stock"]').forEach(input => {
+                        input.checked = false;
+                    });
+
+                    if (searchInput) {
+                        searchInput.value = '';
+                    }
+
+                    if (priceMinInput && priceMaxInput) {
+                        const prices = allItems.map(card => Number(card.dataset.price || 0));
+                        priceMinInput.value = String(Math.min(...prices));
+                        priceMaxInput.value = String(Math.max(...prices));
+                        clampPrice();
+                    }
+
+                    currentSort = 'default';
+                    const defaultSort = document.querySelector('input[name="sort"][value="default"]');
+                    if (defaultSort) {
+                        defaultSort.checked = true;
+                    }
+
+                    applyCatalog();
+                });
+            }
+
+            applyCatalog();
+
+            // Add to cart (localStorage) from the catalog cards.
+            const STORAGE_KEY = 'vinylbox_cart_v1';
+            const getCart = () => {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    const parsed = raw ? JSON.parse(raw) : null;
+                    return Array.isArray(parsed) ? parsed : [];
+                } catch {
+                    return [];
+                }
+            };
+
+            const setCart = (items) => {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+            };
+
+            const slug = (s) => String(s || '')
+                .trim()
+                .toLowerCase()
+                .replace(/[^a-z0-9а-яё]+/gi, '-')
+                .replace(/^-+|-+$/g, '');
+
+            grid.addEventListener('click', (e) => {
+                const btn = e.target.closest('.catalog-page__cart');
+                if (!btn) return;
+                const card = btn.closest('.catalog-page__card');
+                if (!card) return;
+
+                const name = (card.querySelector('.catalog-page__name')?.textContent || '').trim();
+                const sub = (card.querySelector('.catalog-page__sub')?.textContent || '').trim();
+                const price = Number(card.dataset.price || 0);
+                const id = `${slug(name)}-${slug(sub)}` || String(Date.now());
+
+                const cart = getCart();
+                const existing = cart.find(x => x.id === id);
+                if (existing) {
+                    existing.qty = Math.max(1, (Number(existing.qty) || 1) + 1);
+                } else {
+                    cart.push({ id, name: name.toUpperCase(), sub: sub.toUpperCase(), price, qty: 1 });
+                }
+                setCart(cart);
+                window.dispatchEvent(new Event('vinylbox:cart-updated'));
+                window.VINYLBOX?.updateCartBadge?.();
+            });
+        })();
+    </script>
+</body>
+</html>

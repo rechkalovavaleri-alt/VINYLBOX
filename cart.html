@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина — VINYLBOX</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="cart-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img class="logo-image" src="/images/logo1.webp" alt="Vinyl Box">
+            </a>
+            <nav class="nav">
+                <div class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></div>
+                <div class="nav-item"><a class="nav-link" href="catalog.html">КАТАЛОГ</a></div>
+                <div class="nav-item"><a class="nav-link" href="about.html">О НАС</a></div>
+                <div class="nav-item"><a class="nav-link" href="contacts.html">КОНТАКТЫ</a></div>
+                <div class="nav-item"><a class="nav-link is-active" href="cart.html">КОРЗИНА</a></div>
+                <div class="nav-item"><a class="nav-link" href="login.html">ВХОД</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart">
+            <div class="container">
+                <div class="cart__head">
+                    <div class="cart__crumbs">Главная | Каталог | <strong>Корзина</strong></div>
+                    <h1 class="cart__title">КОРЗИНА</h1>
+                </div>
+
+                <div class="cart__layout">
+                    <div class="cart__list" data-cart-list></div>
+
+                    <aside class="cart__summary">
+                        <div class="cart__summary-title">ИТОГО</div>
+                        <div class="cart__summary-lines" data-cart-summary-lines></div>
+                        <div class="cart__summary-divider"></div>
+                        <div class="cart__summary-row">
+                            <div class="cart__summary-label">СУММА</div>
+                            <div class="cart__summary-total" data-cart-total>0 ₽</div>
+                        </div>
+                        <a class="cart__checkout" href="checkout.html">ОФОРМИТЬ ЗАКАЗ</a>
+                    </aside>
+                </div>
+
+                <div class="cart__promo">
+                    <label class="cart__promo-label" for="promo">Есть промокод? Введите его сюда</label>
+                    <div class="cart__promo-row">
+                        <input id="promo" type="text" class="cart__promo-input" placeholder="">
+                        <button class="cart__promo-btn" type="button">ВВЕСТИ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" aria-label="Подвал сайта">
+        <div class="footer__ticker" aria-hidden="true">
+            <div class="footer__ticker-track">
+                <span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span>
+            </div>
+            <div class="footer__ticker-track" aria-hidden="true">
+                <span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span><span>VINYL BOX</span>
+            </div>
+        </div>
+
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <img src="/images/logo_w.webp" alt="Vinyl Box">
+            </div>
+
+            <div class="footer__col">
+                <h3>Меню</h3>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+            </div>
+
+            <div class="footer__col">
+                <h3>Покупателю</h3>
+                <a href="#">Доставка</a>
+                <a href="#">Оплата</a>
+                <a href="#">Обмен и возврат</a>
+                <a href="#">Частозадаваемые вопросы</a>
+            </div>
+
+            <div class="footer__col">
+                <h3>Соцсети</h3>
+                <a href="#">Группа в ВК</a>
+                <a href="#">Телеграм-канал</a>
+            </div>
+
+            <div class="footer__legal">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Согласие на обработку персональных данных</a>
+                <a href="#">Публичная оферта</a>
+            </div>
+        </div>
+
+        <div class="container footer__bottom">
+            <button class="footer__to-top" type="button" aria-label="Наверх">Наверх <span>➜</span></button>
+            <div class="footer__subscribe">
+                <div class="footer__subscribe-title">Оставайтесь на связи</div>
+                <div class="footer__subscribe-text">Получайте подборки новых пластинок по вашим любимым жанрам</div>
+                <div class="footer__subscribe-form">
+                    <input type="email" placeholder="email@example.com" aria-label="Email">
+                    <button type="button" aria-label="Отправить">➜</button>
+                </div>
+            </div>
+            <div class="footer__contacts">
+                <div class="footer__email">info@vinylbox.ru</div>
+                <div class="footer__phone">+7 (000) 000-00-00</div>
+                <div class="footer__copy">Vinyl Box<br>© 2005–2025 Все права защищены</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+    <script>
+        (function () {
+            const btn = document.querySelector('.footer__to-top');
+            if (!btn) return;
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        })();
+
+        (function () {
+            const STORAGE_KEY = 'vinylbox_cart_v1';
+            const listEl = document.querySelector('[data-cart-list]');
+            const summaryLinesEl = document.querySelector('[data-cart-summary-lines]');
+            const totalEl = document.querySelector('[data-cart-total]');
+
+            if (!listEl || !summaryLinesEl || !totalEl) return;
+
+            const formatPrice = (n) => `${Number(n || 0).toLocaleString('ru-RU')} ₽`;
+
+            const getCart = () => {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    const parsed = raw ? JSON.parse(raw) : null;
+                    return Array.isArray(parsed) ? parsed : [];
+                } catch {
+                    return [];
+                }
+            };
+
+            const setCart = (items) => {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+                window.dispatchEvent(new Event('vinylbox:cart-updated'));
+                window.VINYLBOX?.updateCartBadge?.();
+            };
+
+            const trashIcon = `
+                <svg width="25" height="31" viewBox="0 0 25 31" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.3792 0C16.1512 0.000201118 17.7241 1.13533 18.2845 2.81641L18.844 4.49121H20.4036C23.437 4.49134 25.1679 7.95503 23.3479 10.3818C22.5715 11.4174 22.1527 12.6773 22.1526 13.9717V23.5801C22.1526 27.5075 18.9677 30.6921 15.0403 30.6924H9.05204C5.12449 30.6923 1.94071 27.5076 1.94071 23.5801V13.9717C1.94063 12.6772 1.51911 11.4175 0.742467 10.3818C-1.07695 7.95522 0.654882 4.49184 3.68778 4.49121H5.24735L5.80692 2.81641C6.36731 1.13523 7.94009 7.17187e-05 9.71219 0H14.3792ZM9.05204 11.9775C8.43189 11.9775 7.92899 12.4804 7.92899 13.1006L7.92704 22.083C7.92704 22.7028 8.4304 23.2055 9.05008 23.2061C9.67024 23.2061 10.1731 22.7032 10.1731 22.083L10.1751 13.1006C10.1751 12.4807 9.67176 11.978 9.05204 11.9775ZM15.0403 11.9775C14.4203 11.9777 13.9173 12.4805 13.9173 13.1006L13.9163 22.083C13.9163 22.7029 14.4195 23.2057 15.0393 23.2061C15.6594 23.2059 16.1624 22.7031 16.1624 22.083L16.1634 13.1006C16.1634 12.4807 15.6601 11.9779 15.0403 11.9775ZM9.71219 2.24609C8.90687 2.24617 8.19163 2.76146 7.9368 3.52539L7.61454 4.49121H16.4759L16.1536 3.52539C15.8988 2.76156 15.1844 2.24629 14.3792 2.24609H9.71219Z" fill="currentColor"/>
+                </svg>
+            `;
+
+            const compute = (cart) => {
+                const delivery = 0;
+                const itemsTotal = cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.qty) || 0), 0);
+                const total = itemsTotal + delivery;
+                return { delivery, itemsTotal, total };
+            };
+
+            const render = () => {
+                const cart = getCart();
+                listEl.innerHTML = '';
+
+                if (!cart.length) {
+                    listEl.innerHTML = `
+                        <div class="cart__empty">
+                            <div class="cart__empty-text">Корзина пуста</div>
+                            <img class="cart__empty-img" src="images/cart/cart_empty_img.webp" alt="">
+                        </div>
+                    `;
+                } else {
+                    cart.forEach((item) => {
+                        const row = document.createElement('article');
+                        row.className = 'cart__item';
+                        row.dataset.id = item.id;
+                        row.innerHTML = `
+                            <div class="cart__thumb" aria-hidden="true"></div>
+                            <div class="cart__info">
+                                <div class="cart__name">${item.name}</div>
+                                <div class="cart__sub">${item.sub}</div>
+                            </div>
+                            <div class="cart__price">${formatPrice(item.price)}</div>
+                            <div class="cart__qty-block">
+                                <div class="cart__qty">
+                                    <button class="cart__qty-btn" type="button" data-qty="-1" aria-label="Уменьшить">−</button>
+                                    <div class="cart__qty-val">${Number(item.qty) || 1}</div>
+                                    <button class="cart__qty-btn" type="button" data-qty="1" aria-label="Увеличить">+</button>
+                                </div>
+                                <button class="cart__remove" type="button" aria-label="Удалить" data-remove>${trashIcon}</button>
+                            </div>
+                        `;
+                        listEl.appendChild(row);
+                    });
+                }
+
+                summaryLinesEl.innerHTML = '';
+                cart.forEach((item) => {
+                    const line = document.createElement('div');
+                    line.className = 'cart__sum-line';
+                    line.innerHTML = `
+                        <div class="cart__sum-name">${item.name}</div>
+                        <div class="cart__sum-price">${formatPrice((Number(item.price) || 0) * (Number(item.qty) || 0))}</div>
+                    `;
+                    summaryLinesEl.appendChild(line);
+                });
+
+                const deliveryLine = document.createElement('div');
+                deliveryLine.className = 'cart__sum-line';
+                deliveryLine.innerHTML = `
+                    <div class="cart__sum-name">ДОСТАВКА</div>
+                    <div class="cart__sum-price">${formatPrice(0)}</div>
+                `;
+                summaryLinesEl.appendChild(deliveryLine);
+
+                const { total } = compute(cart);
+                totalEl.textContent = formatPrice(total);
+            };
+
+            render();
+
+            listEl.addEventListener('click', (e) => {
+                const removeBtn = e.target.closest('[data-remove]');
+                const qtyBtn = e.target.closest('[data-qty]');
+                const itemEl = e.target.closest('.cart__item');
+                if (!itemEl) return;
+
+                const id = itemEl.dataset.id;
+                const cart = getCart();
+                const idx = cart.findIndex(x => x.id === id);
+                if (idx < 0) return;
+
+                if (removeBtn) {
+                    cart.splice(idx, 1);
+                    setCart(cart);
+                    render();
+                    return;
+                }
+
+                if (qtyBtn) {
+                    const delta = Number(qtyBtn.dataset.qty || 0);
+                    const next = Math.max(1, (Number(cart[idx].qty) || 1) + delta);
+                    cart[idx].qty = next;
+                    setCart(cart);
+                    render();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
