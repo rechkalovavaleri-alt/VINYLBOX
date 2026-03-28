@@ -63,7 +63,7 @@
 
         <div class="login-drawer__head">
           <h2 class="login-drawer__title">ВХОД</h2>
-          <img class="login-drawer__logo" src="/images/sign_up/logo6.webp" alt="">
+          <img class="login-drawer__logo" src="images/sign_up/logo6.webp" alt="">
         </div>
 
         <form class="login-drawer__form" action="#" method="post">
@@ -163,4 +163,5 @@
 
   document.addEventListener("DOMContentLoaded", bind);
 })();
+
 

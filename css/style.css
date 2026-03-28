@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: "Involve";
-    src: url("/font/Involve-Regular.woff") format("woff");
+    src: url("../font/Involve-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
     font-family: "Involve";
-    src: url("/font/Involve-Medium.woff") format("woff");
+    src: url("../font/Involve-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -25,7 +25,7 @@
 
 @font-face {
     font-family: "Involve";
-    src: url("/font/Involve-SemiBold.woff") format("woff");
+    src: url("../font/Involve-SemiBold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -33,7 +33,7 @@
 
 @font-face {
     font-family: "Involve";
-    src: url("/font/Involve-Bold.woff") format("woff");
+    src: url("../font/Involve-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -41,7 +41,7 @@
 
 @font-face {
     font-family: "Steelfish";
-    src: url("/font/steelfish-rg.woff") format("woff");
+    src: url("../font/steelfish-rg.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -49,7 +49,7 @@
 
 @font-face {
     font-family: "Steelfish";
-    src: url("/font/steelfish-bd.woff") format("woff");
+    src: url("../font/steelfish-bd.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -57,7 +57,7 @@
 
 @font-face {
     font-family: "Steelfish";
-    src: url("/font/steelfish-eb.woff") format("woff");
+    src: url("../font/steelfish-eb.woff") format("woff");
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -534,7 +534,7 @@ body {
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 60%),
-        url('/images/about_us/6.webp') center/cover no-repeat;
+        url('../images/about_us/6.webp') center/cover no-repeat;
     z-index: 0;
 }
 
@@ -4674,7 +4674,7 @@ a {
 /* SUBSCRIBE */
 .subscribe {
     padding: 90px 0 120px;
-    background: url("/images/sub/img1.webp") center / cover no-repeat;
+    background: url("../images/sub/img1.webp") center / cover no-repeat;
     position: relative;
 }
 
@@ -5152,3 +5152,4 @@ a {
         text-align: left;
     }
 }
+
