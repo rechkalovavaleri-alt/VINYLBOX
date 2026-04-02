@@ -492,12 +492,12 @@
 
                 // Fixed mapping: each image (1..6) has its own artist name.
                 const artists = [
-                    { name: 'Ariana Grande', img: 1 },
-                    { name: 'tyler the creator', img: 2 },
-                    { name: 'The Neighbourhood', img: 3 },
-                    { name: 'Charli XCX', img: 4 },
-                    { name: 'Offset', img: 5 },
-                    { name: 'Imagine Dragons', img: 6 }
+                    { name: 'Kiss All The Time. Disco, Occasionally.', img: 1 },
+                    { name: 'igor', img: 2 },
+                    { name: 'Fallen star', img: 3 },
+                    { name: 'negro swan', img: 4 },
+                    { name: 'GO:OD AM', img: 5 },
+                    { name: 'Random Access Memories', img: 6 }
                 ];
 
                 const itemHTML = artists.map((p) => {
@@ -505,7 +505,7 @@
                     return `
                         <div class="catalog-hero-carousel__item">
                             <div class="catalog-hero-carousel__circle">
-                                <img src="${img}" alt="">
+                                <img src="${img}" alt="" loading="lazy" decoding="async">
                             </div>
                             <div class="catalog-hero-carousel__meta">
                                 <div class="catalog-hero-carousel__name">${p.name}</div>
